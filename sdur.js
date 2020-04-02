@@ -7,12 +7,16 @@ const ID = function() {
   );
 };
 
-function writeData() {
+function writeSdurEventData() {
   firebase
     .database()
     .ref(ID())
     .set({
-      name: document.getElementById("nameField").value
-
+      title: document.getElementById("nameField").value,
+      description: document.getElementById("descriptionField").value,
+      dateTime:
+        document.getElementById("dateTimeField").value + "T00:00:00.000Z",
+      targetGroup: document.getElementById("targetGroupField").value,
+      url: document.getElementById("urlField").value
     });
 }

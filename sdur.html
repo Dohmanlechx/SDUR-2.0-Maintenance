@@ -39,12 +39,9 @@
       <input type="text" placeholder="Länk" id="urlField" />
     </div>
     <div>
-      <input type="text" placeholder="Datum" id="dateTimeField" />
-    </div>
-    <div>
       <input
         type="date"
-        id="start"
+        id="dateTimeField"
         name="trip-start"
         value="2020-01-01"
         min="2020-01-01"
@@ -52,10 +49,17 @@
       />
     </div>
     <div>
-      <input type="text" placeholder="Målgrupp" id="targetGroupField" />
+      <select id="targetGroupField">
+        <option value="TargetGroup.KIDS">KiDS</option>
+        <option value="TargetGroup.TEENAGERS">13-17</option>
+        <option value="TargetGroup.TEENAGERS_AND_ADULTS">13-31</option>
+        <option value="TargetGroup.ADULTS">18-31</option>
+        <option value="TargetGroup.DEAF_PLUS">DÖV+</option>
+        <option value="EVERYONE">Alla</option>
+      </select>
     </div>
     <div>
-        <button onclick="writeData()">Submit</button>
+      <button onclick="writeSdurEventData()">Lägg till</button>
     </div>
   </body>
 </html>
