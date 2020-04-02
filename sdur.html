@@ -26,19 +26,36 @@
       };
 
       firebase.initializeApp(firebaseConfig);
-
-      function writeData() {
-        firebase
-          .database()
-          .ref("User")
-          .set({
-            name: document.getElementById("nameField").value
-          });
-      }
     </script>
 
-    <h1>Test App!</h1>
-    <input type="text" placeholder="name" id="nameField" />
-    <button onclick="writeData()">Submit</button>
+    <h1>SDUR Maintenance</h1>
+    <div>
+      <input type="text" placeholder="Namn" id="nameField" />
+    </div>
+    <div>
+      <input type="text" placeholder="Beskrivning" id="descriptionField" />
+    </div>
+    <div>
+      <input type="text" placeholder="Länk" id="urlField" />
+    </div>
+    <div>
+      <input type="text" placeholder="Datum" id="dateTimeField" />
+    </div>
+    <div>
+      <input
+        type="date"
+        id="start"
+        name="trip-start"
+        value="2020-01-01"
+        min="2020-01-01"
+        max="2050-12-31"
+      />
+    </div>
+    <div>
+      <input type="text" placeholder="Målgrupp" id="targetGroupField" />
+    </div>
+    <div>
+        <button onclick="writeData()">Submit</button>
+    </div>
   </body>
 </html>
