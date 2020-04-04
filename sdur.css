@@ -7,14 +7,17 @@ h1 {
 }
 
 #loggedIn {
-  margin-left: 30px;
-  visibility: hidden;
+  visibility: visible;
+  margin: auto;
+  width: 30%;
+  margin-top: 100px;
+  align-items: center;
 }
 
 #notLoggedIn {
-  visibility: visible;
+  visibility: hidden;
   margin: auto;
-  width: 50%;
+  width: 25%;
   height: 25%;
   position: absolute;
   top: 0;
