@@ -2,12 +2,25 @@ body {
   background-color: white;
 }
 
-div {
-  margin-left: 30px;
-}
-
 h1 {
   color: black;
+}
+
+#loggedIn {
+  margin-left: 30px;
+  visibility: hidden;
+}
+
+#notLoggedIn {
+  visibility: visible;
+  margin: auto;
+  width: 50%;
+  height: 25%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 #radioKids {
@@ -21,4 +34,15 @@ h1 {
   font-size: 18px;
   color: white;
   background-color: darkslategray;
+}
+
+#btnLogin {
+  margin-top: 15px;
+  color: white;
+  background-color: darkslategray;
+  margin-bottom: 30px;
+}
+
+#logo {
+  width: 150px;
 }
