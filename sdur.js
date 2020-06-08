@@ -9,7 +9,7 @@ function storeCreds() {
   firebase
     .auth()
     .signInWithEmailAndPassword(LOGIN_EMAIL, LOGIN_PASSWORD)
-    .then(function(user) {
+    .then(function (user) {
       if (user) {
         document.getElementById("notLoggedIn").style.visibility = "hidden";
         document.getElementById("loggedIn").style.visibility = "visible";
@@ -33,8 +33,6 @@ function writeSdurEventData() {
     document.getElementById("dateTimeField").value + "T00:00:00.000Z";
   const url = document.getElementById("urlField").value;
 
-  console.log(LOGIN_EMAIL);
-
   if (name != "" && dateTime != "T00:00:00.000Z") {
     firebase.database().ref(id).set({
       title: name,
@@ -47,16 +45,21 @@ function writeSdurEventData() {
 }
 
 function deleteOutdatedEvents() {
-  firebase.database().ref().once('value').then(function(elements) {
-    for (var key in elements.val()) {
-      console.log(key);
-    }
+  firebase
+    .database()
+    .ref()
+    .once("value")
+    .then(function (elements) {
+      for (let key in elements.val()) {
+        let event = elements.val()[key];
+        let eventDate = new Date(event["dateTime"]);
+        let now = Date.now();
 
-    return;
-
-    if (Date(snapshot['dateTime'].substring(0, 10)).valueOf < Date(2020, 6, 8)) {
-      let ref = database.ref(snapshot['name']);
-      ref.remove();
-    }
-  });
+        if (eventDate.getTime() < now) {
+          let ref = firebase.database().ref(key);
+          console.log(ref);
+          ref.remove();
+        }
+      }
+    });
 }
