@@ -7,7 +7,7 @@ h1 {
 }
 
 #loggedIn {
-  visibility: visible;
+  visibility: hidden;
   margin: auto;
   width: 30%;
   margin-top: 100px;
@@ -15,7 +15,7 @@ h1 {
 }
 
 #notLoggedIn {
-  visibility: hidden;
+  visibility: visible;
   margin: auto;
   width: 25%;
   height: 25%;
@@ -32,11 +32,20 @@ h1 {
 
 #btnAddEvent {
   margin-top: 15px;
-  width: 200px;
+  width: 250px;
   height: 50px;
   font-size: 18px;
   color: white;
   background-color: darkslategray;
+}
+
+#btnDeleteEvents {
+  margin-top: 15px;
+  width: 250px;
+  height: 50px;
+  font-size: 14px;
+  color: white;
+  background-color: red;
 }
 
 #btnLogin {

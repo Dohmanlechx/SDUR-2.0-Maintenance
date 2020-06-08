@@ -6,11 +6,19 @@ function storeCreds() {
   LOGIN_EMAIL = document.getElementById("emailField").value;
   LOGIN_PASSWORD = document.getElementById("passwordField").value;
 
-  // TODO: Change to Firebase Auth
-  if (LOGIN_EMAIL === "admin" && LOGIN_PASSWORD === "123") {
-    document.getElementById("notLoggedIn").style.visibility = "hidden";
-    document.getElementById("loggedIn").style.visibility = "visible";
-  }
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(LOGIN_EMAIL, LOGIN_PASSWORD)
+    .then(function(user) {
+      if (user) {
+        document.getElementById("notLoggedIn").style.visibility = "hidden";
+        document.getElementById("loggedIn").style.visibility = "visible";
+      }
+    })
+    .catch(function (error) {
+      // Handle Errors here.
+      // ...
+    });
 }
 
 function selectTargetGroup(value) {
@@ -36,4 +44,19 @@ function writeSdurEventData() {
       url: url,
     });
   }
+}
+
+function deleteOutdatedEvents() {
+  firebase.database().ref().once('value').then(function(elements) {
+    for (var key in elements.val()) {
+      console.log(key);
+    }
+
+    return;
+
+    if (Date(snapshot['dateTime'].substring(0, 10)).valueOf < Date(2020, 6, 8)) {
+      let ref = database.ref(snapshot['name']);
+      ref.remove();
+    }
+  });
 }
